@@ -1,12 +1,19 @@
+// app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common'; // Import NgIf
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [NgIf],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'myangularapp';
+  clicked = false;
+  title = 'app';
+
+  onClick() {
+    this.clicked = !this.clicked;
+  }
 }
