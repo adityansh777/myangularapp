@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NgIf } from '@angular/common'; // Import NgIf
 import { WelcomeComponent } from './components/welcome/welcome.component'; // Import the WelcomeComponent
 import { LoginComponent } from './components/login/login.component'; // Import the LoginComponent
+// import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
