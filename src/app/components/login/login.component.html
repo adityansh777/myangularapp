@@ -1,13 +1,13 @@
-<p>login works!</p>
+<!-- <p>login works!</p> -->
 
-user name :<input type="text" name="username" [(ngModel)]="username" >
-password :<input type="password" name="password" [(ngModel)]="password" >
+Username :<input type="text" name="username" [(ngModel)]="username" /> Password
+:<input type="password" name="password" [(ngModel)]="password" />
 
 <div>
-<small *ngIf="invalidLogin"> {{errorMessage}} </small>
+  <small *ngIf="invalidLogin"> {{ errorMessage }} </small>
 </div>
 
 <div>
-    <small *ngIf="validLogin"> {{correctMessage}} </small>
-    </div>
+  <small *ngIf="validLogin"> {{ correctMessage }} </small>
+</div>
 <button (click)="login()">Login</button>
