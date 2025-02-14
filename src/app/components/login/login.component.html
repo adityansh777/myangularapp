@@ -1,13 +1,10 @@
 <!-- <p>login works!</p> -->
+<div class="container">
+  Username :<input type="text" name="username" [(ngModel)]="username" />
+  Password :<input type="password" name="password" [(ngModel)]="password" />
 
-Username :<input type="text" name="username" [(ngModel)]="username" /> Password
-:<input type="password" name="password" [(ngModel)]="password" />
+  <div class="alert alert-warning" *ngIf="invalidLogin">{{ errorMessage }}</div>
 
-<div>
-  <small *ngIf="invalidLogin"> {{ errorMessage }} </small>
+  <div class="alert" *ngIf="validLogin">{{ correctMessage }}</div>
+  <button (click)="login()">Login</button>
 </div>
-
-<div>
-  <small *ngIf="validLogin"> {{ correctMessage }} </small>
-</div>
-<button (click)="login()">Login</button>
