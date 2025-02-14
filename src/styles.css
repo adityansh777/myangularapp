@@ -1,18 +1,19 @@
-/* Global styles for div */
-div {
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css); /* Global styles for div */
+/* 
+  div {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Global styles for span */
+
 span {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
 }
 
-/* Global styles for links */
+
 a {
   color: #007bff;
   text-decoration: none;
@@ -22,7 +23,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Global styles for unordered lists */
 ul {
   list-style-type: disc;
   margin: 0;
@@ -33,7 +33,6 @@ li {
   margin: 0 0 0.5em 1.5em;
 }
 
-/* Global styles for headings */
 h1,
 h2,
 h3,
@@ -64,7 +63,6 @@ h6 {
   font-size: 0.875em;
 }
 
-/* Global styles for paragraphs */
 p {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -73,9 +71,8 @@ p {
   margin: 0 0 1em;
 }
 
-/* Global styles for images */
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
+} */
