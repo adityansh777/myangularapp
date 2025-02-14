@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HardcodedauthenticationService } from '../../service/hardcodedauthentication.service';
 @Component({
   selector: 'app-login',
   imports: [FormsModule, NgIf],
@@ -9,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private router: Router) {
-    console.log('LoginComponent constructor called!');
-    console.log('Router: ', router);
-  }
+  constructor(
+    private router: Router,
+    private hardcodedauthenticationservice: HardcodedauthenticationService
+  ) {}
 
   username = 'adityansh';
   password = 'password';
@@ -23,8 +24,14 @@ export class LoginComponent {
   correctMessage = 'correct pass';
 
   login() {
-    if (this.username === 'adityansh' && this.password === 'password') {
-      // alert('Login successful!');
+    // if (this.username === 'adityansh' && this.password === 'password') {
+    // alert('Login successful!');
+    if (
+      this.hardcodedauthenticationservice.authenticate(
+        this.username,
+        this.password
+      )
+    ) {
       console.log('Login successful! with username', this.username);
       this.invalidLogin = false;
       this.validLogin = true;
