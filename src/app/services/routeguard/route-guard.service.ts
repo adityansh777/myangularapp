@@ -1,9 +1,29 @@
 import { Injectable } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  // GuardResult,
+  // MaybeAsync,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { HardcodedauthenticationService } from '../hardcodedauthentication.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class RouteGuardService {
+export class RouteGuardService implements CanActivate {
+  constructor(
+    public hardcodedauthenticationlogic: HardcodedauthenticationService,
+    public router: Router
+  ) {}
 
-  constructor() { }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // console.log('Route guard provoked');
+    if (this.hardcodedauthenticationlogic.isuserloggedin()) {
+      return true;
+    }
+    this.router.navigate(['login']);
+    return false;
+  }
 }
