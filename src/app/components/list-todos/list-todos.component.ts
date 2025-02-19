@@ -2,6 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TodoDataService } from '../../services/data/tododata/todo-data.service';
+import { Router } from '@angular/router';
 
 export class Todo {
   constructor(
@@ -31,7 +32,7 @@ export class ListTodosComponent {
   //   new Todo(2, 'Learn to Dance22', false, new Date()),
   //   new Todo(3, 'Learn to Dance333', false, new Date()),
   // ];
-  constructor(private todoService: TodoDataService) {}
+  constructor(private todoService: TodoDataService, private router: Router) {}
 
   ngOnInit() {
     this.refreshTodos();
@@ -53,12 +54,15 @@ export class ListTodosComponent {
   }
 
   updateTodo(id: any) {
-    this.todoService.updateTodo('in28minutes', id).subscribe((response) => {
-      console.log(response);
-      console.log(`update todo invoked for ${id}`);
-      this.message = `update successful ${id}`;
-      this.refreshTodos();
-    });
+    // this.todoService.updateTodo('in28minutes', id).subscribe((response) => {
+    //   console.log(response);
+    //   console.log(`update todo invoked for ${id}`);
+    //   this.message = `update successful ${id}`;
+    //   this.refreshTodos();
+    // });
+    console.log('updateTodo invoked');
+
+    this.router.navigate(['todos', id]);
   }
 
   message: string | undefined;
