@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { WelcomeDataService } from '../../services/data/welcome-data.service';
-import { NgIf } from '@angular/common';
+// import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
-  imports: [RouterLink, NgIf],
+  imports: [RouterLink],
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css'], // Fixed typo
 })
