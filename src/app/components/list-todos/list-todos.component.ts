@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TodoDataService } from '../../services/data/tododata/todo-data.service';
@@ -14,7 +14,7 @@ export class Todo {
 
 @Component({
   selector: 'app-list-todos',
-  imports: [NgFor, DatePipe],
+  imports: [NgFor, DatePipe, NgIf],
   templateUrl: './list-todos.component.html',
   styleUrl: './list-todos.component.css',
 })
@@ -34,12 +34,32 @@ export class ListTodosComponent {
   constructor(private todoService: TodoDataService) {}
 
   ngOnInit() {
+    this.refreshTodos();
+  }
+
+  refreshTodos() {
     this.todoService.retreiveAllTodos('in28minutes').subscribe((response) => {
       console.log(response);
       this.todos = response;
     });
   }
   deleteTodo(id: any) {
-    console.log(`Delete todo invoked for ${id}`);
+    this.todoService.deleteTodo('in28minutes', id).subscribe((response) => {
+      console.log(response);
+      console.log(`Delete todo invoked for ${id}`);
+      this.message = `Delete successful ${id}`;
+      this.refreshTodos();
+    });
   }
+
+  updateTodo(id: any) {
+    this.todoService.updateTodo('in28minutes', id).subscribe((response) => {
+      console.log(response);
+      console.log(`update todo invoked for ${id}`);
+      this.message = `update successful ${id}`;
+      this.refreshTodos();
+    });
+  }
+
+  message: string | undefined;
 }

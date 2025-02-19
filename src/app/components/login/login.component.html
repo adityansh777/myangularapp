@@ -3,7 +3,7 @@
   Username :<input type="text" name="username" [(ngModel)]="username" />
   Password :<input type="password" name="password" [(ngModel)]="password" />
 
-  <div class="alert alert-warning" *ngIf="invalidLogin">{{ errorMessage }}</div>
+  <div class="alert alert-danger" *ngIf="invalidLogin">{{ errorMessage }}</div>
 
   <div class="alert" *ngIf="validLogin">{{ correctMessage }}</div>
   <button (click)="login()">Login</button>
