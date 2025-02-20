@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { WelcomeDataService } from '../../services/data/welcome-data.service';
+import { WelcomeDataService } from '../../services/data/welcomedata/welcome-data.service';
 import { NgIf } from '@angular/common';
 
 @Component({
