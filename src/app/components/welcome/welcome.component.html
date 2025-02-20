@@ -1,21 +1,39 @@
-<!-- <p>welcome works!</p> -->
-<!-- <p>Welcome {{ name }}</p> -->
-<p>Welcome to Todo managment app {{ name }}</p>
-<p>You can manage your todos here <a [routerLink]="'/todos'">Link</a></p>
+<div
+  class="container d-flex flex-column justify-content-center"
+  style="min-height: 100vh"
+>
+  <!-- Header Section -->
+  <div class="text-center mb-3">
+    <h1 class="display-5">Welcome to Todo Management App, {{ name }}!</h1>
+    <p class="lead">
+      Manage your todos with ease. Click the button below or use the link to get
+      started.
+    </p>
+    <a class="btn btn-primary btn-lg" [routerLink]="'/todos'" role="button">
+      Go to Todos
+    </a>
+  </div>
 
-<div class="container">
-  Click here to get a customized message
-  <button (click)="getWelcomeMessage()">Get Welcome Message</button>
-</div>
+  <!-- Personalized Welcome Message Section -->
+  <div class="card mb-3">
+    <div class="card-body text-center">
+      <h5 class="card-title">Personalized Welcome Message</h5>
+      <p class="card-text">
+        Click the button below to receive a customized welcome message with your
+        name.
+      </p>
+      <button
+        (click)="getWelcomeMessageWithParameter()"
+        class="btn btn-outline-primary"
+      >
+        Get Personalized Welcome
+      </button>
+    </div>
+  </div>
 
-<div class="container">
-  Click here to get a customized message with your name
-  <button (click)="getWelcomeMessageWithParameter()">
-    Get Personalized Welcome
-  </button>
-</div>
-
-<div class="container" *ngIf="welcomeMessageFromService">
-  <h2>your customized welcome mesg</h2>
-  {{ welcomeMessageFromService }}
+  <!-- Display Customized Welcome Message -->
+  <div class="alert alert-info text-center" *ngIf="welcomeMessageFromService">
+    <h4 class="alert-heading">Your Customized Message</h4>
+    <p>{{ welcomeMessageFromService }}</p>
+  </div>
 </div>
