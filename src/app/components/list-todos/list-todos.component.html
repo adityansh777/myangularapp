@@ -1,4 +1,4 @@
-<!-- <p>list-todos works!</p> -->
+<!-- list-todos.component.html -->
 <h1>My todo list</h1>
 
 <div class="alert alert-success" *ngIf="message">{{ message }}</div>
@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let todo of todos">
-        <!-- <td>{{ todo.id }}</td> -->
+        <!-- Displaying description, target date and status -->
         <td>{{ todo.description }}</td>
         <td>{{ todo.targetDate | date }}</td>
         <td>{{ todo.done }}</td>
@@ -33,4 +33,9 @@
       </tr>
     </tbody>
   </table>
+  <div class="row">
+    <td>
+      <button (click)="addTodo()" class="btn btn-success">Add Todo</button>
+    </td>
+  </div>
 </div>
