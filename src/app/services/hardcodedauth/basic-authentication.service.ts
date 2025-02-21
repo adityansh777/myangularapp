@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,10 +27,14 @@ export class BasicauthenticationService {
     let headers = new HttpHeaders({
       Authorization: basicAuthHeaderString,
     });
-    return this.http.get<AuthenticationBean>(
-      `http://localhost:8080/basicauth`,
-      { headers }
-    );
+    return this.http
+      .get<AuthenticationBean>(`http://localhost:8080/basicauth`, { headers })
+      .pipe(
+        map((data: any) => {
+          sessionStorage.setItem('authuser', username);
+          return data;
+        })
+      );
   }
 
   isuserloggedin() {
