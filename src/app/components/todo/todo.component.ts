@@ -39,10 +39,10 @@ export class TodoComponent {
     // ⚠️ Issue: The logic here is reversed.
     // For a new todo (id === -1), you should call createTodo.
     // For an existing todo, you should call updateTodo.
-    if (this.id != -1) {
+    if (this.id !== -1) {
       // Currently, calling createTodo for existing todos, which is incorrect.
       this.todoService
-        .createTodo('in28minutes', this.todo)
+        .updateTodo('in28minutes', this.id, this.todo)
         .subscribe((data) => {
           console.log(data);
           this.router.navigate(['todos']);
@@ -51,7 +51,7 @@ export class TodoComponent {
     } else {
       // Calling updateTodo for new todo, which is reversed.
       this.todoService
-        .updateTodo('in28minutes', this.id, this.todo)
+        .createTodo('in28minutes', this.todo)
         .subscribe((data) => {
           console.log(data);
           this.router.navigate(['todos']);
