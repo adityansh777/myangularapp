@@ -17,8 +17,8 @@ export class LoginComponent {
     private BasicauthenticationService: BasicauthenticationService
   ) {}
 
-  username = 'adityansh';
-  password = 'password';
+  username = 'in28minutes';
+  password = 'dummy';
   invalidLogin = false;
   validLogin = false;
 

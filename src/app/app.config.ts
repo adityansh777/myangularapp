@@ -16,5 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom(BrowserModule, FormsModule),
     provideHttpClient(withInterceptors([basicAuthInterceptorFn])),
+    // provideHttpClient(),
   ],
 };

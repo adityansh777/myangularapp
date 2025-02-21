@@ -8,14 +8,14 @@ import { map, Observable } from 'rxjs';
 export class BasicauthenticationService {
   constructor(private http: HttpClient) {}
 
-  authenticate(username: string, password: string) {
-    if (username === 'adityansh' && password === 'password') {
-      sessionStorage.setItem('authuser', username);
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // authenticate(username: string, password: string) {
+  //   if (username === 'adityansh' && password === 'password') {
+  //     sessionStorage.setItem('authuser', username);
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   executeAuthenticationService(
     username: string,
@@ -32,9 +32,19 @@ export class BasicauthenticationService {
       .pipe(
         map((data: any) => {
           sessionStorage.setItem('authuser', username);
+          sessionStorage.setItem('authtoken', basicAuthHeaderString);
+
           return data;
         })
       );
+  }
+
+  getAuthenticatedUser() {
+    return sessionStorage.getItem('authuser');
+  }
+
+  getAuthenticatedToken() {
+    return sessionStorage.getItem('authtoken');
   }
 
   isuserloggedin() {
@@ -44,6 +54,7 @@ export class BasicauthenticationService {
 
   logout() {
     sessionStorage.removeItem('authuser');
+    sessionStorage.removeItem('authtoken');
   }
 }
 
