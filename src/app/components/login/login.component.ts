@@ -35,7 +35,7 @@ export class LoginComponent {
       console.log('Login successful! with username', this.username);
       this.invalidLogin = false;
       this.validLogin = true;
-      this.router.navigate(['welcome/', this.username]);
+      window.location.href = '/welcome/' + this.username;
     } else {
       // alert('Login failed!');
       console.log('Login failed! username', this.username);

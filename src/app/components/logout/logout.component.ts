@@ -14,5 +14,6 @@ export class LogoutComponent {
 
   ngOnInit() {
     this.hardcodedauthenticationlogic.logout();
+    window.location.href = '/login';
   }
 }
