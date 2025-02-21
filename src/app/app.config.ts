@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { routes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { basicAuthInterceptorFn } from './services/interceptor.service';
+import { basicAuthInterceptorFn } from './services/http/interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
