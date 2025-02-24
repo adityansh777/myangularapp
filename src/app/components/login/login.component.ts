@@ -12,8 +12,8 @@ import { BasicauthenticationService } from '../../services/hardcodedauth/basic-a
 })
 export class LoginComponent {
   constructor(
-    private router: Router,
-    private hardcodedauthenticationservice: HardcodedauthenticationService,
+    // private router: Router,
+    // private hardcodedauthenticationservice: HardcodedauthenticationService,
     private BasicauthenticationService: BasicauthenticationService
   ) {}
 

@@ -1,27 +1,36 @@
+import { Injectable } from '@angular/core';
 import {
+  HttpInterceptor,
+  HttpHandler,
   HttpRequest,
-  HttpHandlerFn,
   HttpEvent,
-  HttpInterceptorFn,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BasicauthenticationService } from '../hardcodedauth/basic-authentication.service';
 
-export const basicAuthInterceptorFn: HttpInterceptorFn = (
-  req: HttpRequest<any>,
-  next: HttpHandlerFn
-): Observable<HttpEvent<any>> => {
-  console.log('Interceptor invoked');
+@Injectable()
+export class HttpInterceptorBasicAuthService implements HttpInterceptor {
+  constructor(private basicAuthenticationService: BasicauthenticationService) {
+    console.log('🔹 HttpInterceptorBasicAuthService Initialized'); // Log at initialization
+  }
 
-  const username = 'in28minutes';
-  const password = 'dummy';
-  const basicAuthHeaderString =
-    'Basic ' + window.btoa(`${username}:${password}`);
-  console.log('Interceptor: adding header', basicAuthHeaderString);
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    console.log('🚀 Interceptor Invoked'); // Log when it is triggered
 
-  // Clone the request and add the Authorization header
-  const authReq = req.clone({
-    setHeaders: { Authorization: basicAuthHeaderString },
-  });
+    let basicAuthHeaderString =
+      this.basicAuthenticationService.getAuthenticatedToken();
+    let username = this.basicAuthenticationService.getAuthenticatedUser();
 
-  return next(authReq);
-};
+    if (basicAuthHeaderString && username) {
+      console.log('🔑 Adding Authorization Header:', basicAuthHeaderString);
+      request = request.clone({
+        setHeaders: { Authorization: basicAuthHeaderString },
+      });
+    }
+
+    return next.handle(request);
+  }
+}
