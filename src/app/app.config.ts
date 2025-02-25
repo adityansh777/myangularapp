@@ -12,7 +12,8 @@ import {
   HTTP_INTERCEPTORS,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { HttpInterceptorBasicAuthService } from './services/http/interceptor.service';
+// import { HttpInterceptorBasicAuthService } from './services/http/interceptor.service';
+import { JwtInterceptor } from './services/interceptor/jwt-interceptor.service';
 
 console.log('🛠 Registering HttpInterceptorBasicAuthService');
 
@@ -22,9 +23,14 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom(BrowserModule, FormsModule),
     provideHttpClient(withInterceptorsFromDi()),
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpInterceptorBasicAuthService,
+    //   multi: true,
+    // },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorBasicAuthService,
+      useClass: JwtInterceptor,
       multi: true,
     },
   ],

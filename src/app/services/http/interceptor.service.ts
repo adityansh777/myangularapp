@@ -6,7 +6,7 @@ import {
   HttpEvent,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BasicauthenticationService } from '../hardcodedauth/basic-authentication.service';
+import { BasicauthenticationService } from '../auth/basic-authentication.service';
 
 @Injectable()
 export class HttpInterceptorBasicAuthService implements HttpInterceptor {

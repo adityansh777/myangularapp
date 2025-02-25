@@ -7,7 +7,7 @@ import {
   // MaybeAsync,
   RouterStateSnapshot,
 } from '@angular/router';
-import { HardcodedauthenticationService } from '../hardcodedauth/hardcodedauthentication.service';
+import { HardcodedauthenticationService } from '../auth/hardcodedauthentication.service';
 
 @Injectable({
   providedIn: 'root',
