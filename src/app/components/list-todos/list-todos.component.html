@@ -1,41 +1,49 @@
 <!-- list-todos.component.html -->
-<h1>My todo list</h1>
+<div class="todo-container">
+  <h1 class="title">My Todo List</h1>
 
-<div class="alert alert-success" *ngIf="message">{{ message }}</div>
+  <div *ngIf="message" class="alert-message">
+    {{ message }}
+  </div>
 
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>desc</th>
-        <th>Target Date</th>
-        <th>Is completed</th>
-        <th>Actions</th>
-        <th>Update Todo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let todo of todos">
-        <!-- Displaying description, target date and status -->
-        <td>{{ todo.description }}</td>
-        <td>{{ todo.targetDate | date }}</td>
-        <td>{{ todo.done }}</td>
-        <td>
-          <button (click)="deleteTodo(todo.id)" class="btn btn-primary">
-            Delete
-          </button>
-        </td>
-        <td>
-          <button (click)="updateTodo(todo.id)" class="btn btn-primary">
-            Update Todo
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="row">
-    <td>
-      <button (click)="addTodo()" class="btn btn-success">Add Todo</button>
-    </td>
+  <div class="todo-card">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Target Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let todo of todos">
+            <td>{{ todo.description }}</td>
+            <td>{{ todo.targetDate | date : "MMM d, y" }}</td>
+            <td>
+              <span
+                class="status"
+                [ngClass]="{ completed: todo.done, pending: !todo.done }"
+              >
+                {{ todo.done ? "✔ Completed" : "⏳ Pending" }}
+              </span>
+            </td>
+            <td class="action-buttons">
+              <button (click)="deleteTodo(todo.id)" class="btn delete-btn">
+                🗑 Delete
+              </button>
+              <button (click)="updateTodo(todo.id)" class="btn update-btn">
+                ✏ Update
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="add-btn-container">
+      <button (click)="addTodo()" class="btn add-btn">➕ Add Todo</button>
+    </div>
   </div>
 </div>

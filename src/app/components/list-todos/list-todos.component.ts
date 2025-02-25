@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TodoDataService } from '../../services/data/tododata/todo-data.service';
@@ -16,7 +16,7 @@ export class Todo {
 
 @Component({
   selector: 'app-list-todos',
-  imports: [NgFor, DatePipe, NgIf],
+  imports: [NgFor, DatePipe, NgIf, CommonModule],
   templateUrl: './list-todos.component.html',
   styleUrls: ['./list-todos.component.css'], // Correct property name
 })

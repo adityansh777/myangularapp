@@ -1,50 +1,55 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card mt-5 shadow">
-        <div class="card-header bg-primary text-white">
-          <h3 class="mb-0">Todo App Login</h3>
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                name="username"
-                [(ngModel)]="username"
-                placeholder="Enter your username"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                [(ngModel)]="password"
-                placeholder="Enter your password"
-              />
-            </div>
-            <!-- <div *ngIf="invalidLogin" class="alert alert-danger" role="alert">
-              {{ errorMessage }}
-            </div>
-            <div *ngIf="validLogin" class="alert alert-success" role="alert">
-              {{ correctMessage }}
-            </div> -->
-            <button
-              type="button"
-              class="btn btn-primary w-100"
-              (click)="handleJWTAuthLogin()"
-            >
-              Login
-            </button>
-          </form>
-        </div>
+<!-- login.component.html -->
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Welcome Back!</h2>
+
+    <form>
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Enter your username"
+          required
+        />
       </div>
-    </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="invalidLogin" class="alert-message error">
+        ⚠ {{ errorMessage }}
+      </div>
+
+      <!-- Success Message -->
+      <div *ngIf="validLogin" class="alert-message success">
+        🎉 {{ correctMessage }}
+      </div>
+
+      <!-- Login Button -->
+      <button
+        type="button"
+        class="btn login-btn"
+        (click)="handleJWTAuthLogin()"
+      >
+        🚀 Login
+      </button>
+    </form>
   </div>
 </div>

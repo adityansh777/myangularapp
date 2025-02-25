@@ -16,6 +16,8 @@ export class LoginComponent {
   password = 'dummy';
   invalidLogin = false;
   validLogin = false;
+  errorMessage = 'Wrong credentials!';
+  correctMessage = 'Correct password';
 
   constructor(
     private router: Router,

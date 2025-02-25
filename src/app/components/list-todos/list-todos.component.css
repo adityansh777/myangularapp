@@ -1,0 +1,126 @@
+/* 🎨 Overall Styling */
+.todo-container {
+  max-width: 750px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #4b5563; /* Soft modern black */
+}
+
+/* 🎨 Minimal Alert Message */
+.alert-message {
+  background: #fef3c7; /* Light yellow */
+  color: #b45309; /* Warm orange */
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* 🎨 Minimal Todo Card */
+.todo-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 🎨 Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* 🎨 Minimal Table Headers */
+.table th {
+  background: #f3f4f6; /* Soft gray */
+  color: #374151; /* Dark gray */
+  padding: 14px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb; /* Subtle border */
+}
+
+/* 🎨 Clean Status Labels */
+.status {
+  /* padding: 5px 12px; */
+  font-size: 0.9rem;
+  /* border-radius: 12px; */
+  font-weight: 500;
+}
+
+.completed {
+  background: #86efac; /* Soft green */
+  color: #065f46; /* Dark green */
+}
+
+.pending {
+  /* background: #fcd34d; Warm yellow */
+  color: #92400e; /* Deep orange */
+}
+
+/* 🎨 Minimal Buttons */
+.btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🎨 Delete Button */
+.delete-btn {
+  background: #fca5a5; /* Soft red */
+  color: #7f1d1d; /* Deep red */
+}
+
+/* 🎨 Update Button */
+.update-btn {
+  background: #facc15; /* Bright yellow */
+  color: #7a3414; /* Deep brown */
+}
+
+/* 🎨 Add Todo Button */
+.add-btn {
+  background: #6ee7b7; /* Soft green */
+  color: #064e3b; /* Dark green */
+  font-size: 1.2rem;
+  padding: 12px 22px;
+}
+
+/* 🎨 Action Buttons - Better Spacing */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* Space between buttons */
+}
+
+/* 🎨 Responsive Design */
+@media (max-width: 600px) {
+  .table th,
+  .table td {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .add-btn {
+    font-size: 1rem;
+  }
+}

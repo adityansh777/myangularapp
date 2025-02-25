@@ -1,0 +1,87 @@
+/* 🎨 Full Page Centered Login Container */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background: #f9fafb; Soft off-white */
+}
+
+/* 🎨 Minimalistic Login Card */
+.login-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* 🎨 Login Title */
+.login-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #374151; /* Dark Gray */
+  margin-bottom: 20px;
+}
+
+/* 🎨 Form Input Fields */
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4b5563; /* Dark Gray */
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb; /* Light Gray */
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #6ee7b7; /* Green Focus */
+}
+
+/* 🎨 Alert Messages */
+.alert-message {
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.error {
+  background: #fee2e2; /* Light Red */
+  color: #991b1b; /* Deep Red */
+}
+
+.success {
+  background: #d1fae5; /* Light Green */
+  color: #065f46; /* Dark Green */
+}
+
+/* 🎨 Login Button */
+.login-btn {
+  background: #6ee7b7; /* Soft Green */
+  color: #064e3b; /* Dark Green */
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}

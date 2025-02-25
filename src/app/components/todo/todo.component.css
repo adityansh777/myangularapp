@@ -1,3 +1,80 @@
 .ng-invalid *:not(form):not(form *) {
   border-left: 5px solid red;
 }
+
+/* 🎨 Form Container */
+.todo-form-container {
+  max-width: 450px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 🎨 Form Title */
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #374151; /* Dark Gray */
+  margin-bottom: 15px;
+}
+
+/* 🎨 Alert Message */
+.alert-message {
+  background: #fef3c7; /* Light yellow */
+  color: #b45309; /* Warm orange */
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* 🎨 Form Card */
+.todo-form-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 🎨 Form Inputs */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #4b5563; /* Dark gray */
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb; /* Light Gray */
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #6ee7b7; /* Green Focus */
+}
+
+/* 🎨 Submit Button */
+.update-btn {
+  background: #6ee7b7; /* Soft green */
+  color: #064e3b; /* Dark green */
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
