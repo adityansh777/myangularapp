@@ -1,0 +1,67 @@
+/* 🎨 Adjusted Welcome Container */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Move everything to the top */
+  height: calc(100vh - 150px); /* Viewport height minus navbar space */
+  padding: 20px;
+  margin-top: 150px; /* Leaves space for the navbar */
+  /* background: linear-gradient(to bottom, #fef3c7, #fde68a); */
+  margin-top: -10px; /* Moves everything up by 200px */
+}
+
+/* 🎨 Header Section */
+.welcome-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 🎨 Welcome Card */
+.welcome-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 20px;
+}
+
+/* 🎨 Welcome Message */
+.welcome-message {
+  background: #d1fae5; /* Light Green */
+  color: #065f46; /* Dark Green */
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  animation: fadeIn 0.5s ease-in-out;
+  margin-top: 15px;
+}
+
+/* 🎨 Main Button Highlight */
+.primary-btn {
+  background: linear-gradient(90deg, #ff9800, #ff5722); /* Vibrant gradient */
+  color: white;
+  font-size: 1.3rem; /* Bigger size */
+  font-weight: bold;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.4); /* Glow effect */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.primary-btn:hover {
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  transform: scale(1.05); /* Slight pop effect */
+  box-shadow: 0 6px 15px rgba(255, 87, 34, 0.6); /* Stronger glow */
+}

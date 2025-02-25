@@ -1,39 +1,32 @@
-<div
-  class="container d-flex flex-column justify-content-center"
-  style="min-height: 100vh"
->
+<!-- welcome.component.html -->
+<div class="welcome-container">
   <!-- Header Section -->
-  <div class="text-center mb-3">
-    <h1 class="display-5">Welcome to Todo Management App, {{ name }}!</h1>
-    <p class="lead">
-      Manage your todos with ease. Click the button below or use the link to get
-      started.
+  <div class="welcome-header">
+    <h1 class="welcome-title">Welcome, {{ name }}! 🎉</h1>
+    <p class="welcome-subtitle">
+      Manage your todos with ease. Click the button below to get started.
     </p>
-    <a class="btn btn-primary btn-lg" [routerLink]="'/todos'" role="button">
-      Go to Todos
-    </a>
+    <a class="btn primary-btn" [routerLink]="'/todos'">📋 Go to Todos</a>
   </div>
 
   <!-- Personalized Welcome Message Section -->
-  <div class="card mb-3">
-    <div class="card-body text-center">
-      <h5 class="card-title">Personalized Welcome Message</h5>
-      <p class="card-text">
-        Click the button below to receive a customized welcome message with your
-        name.
-      </p>
-      <button
-        (click)="getWelcomeMessageWithParameter()"
-        class="btn btn-outline-primary"
-      >
-        Get Personalized Welcome
-      </button>
-    </div>
+  <div class="welcome-card">
+    <h5>🎈 Personalized Welcome Message</h5>
+    <p>
+      Click the button below to receive a customized welcome message with your
+      name.
+    </p>
+    <button
+      (click)="getWelcomeMessageWithParameter()"
+      class="btn secondary-btn"
+    >
+      ✨ Get Personalized Welcome
+    </button>
   </div>
 
   <!-- Display Customized Welcome Message -->
-  <div class="alert alert-info text-center" *ngIf="welcomeMessageFromService">
-    <h4 class="alert-heading">Your Customized Message</h4>
+  <div class="welcome-message" *ngIf="welcomeMessageFromService">
+    <h4>🎊 Your Customized Message</h4>
     <p>{{ welcomeMessageFromService }}</p>
   </div>
 </div>
