@@ -1,10 +1,30 @@
 /* 🎨 Full Page Centered Login Container */
 .login-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* background: #f9fafb; Soft off-white */
+  /* background: linear-gradient(to bottom, #fef3c7, #fde68a); */
+  padding: 20px;
+  margin-top: -40px;
+}
+
+/* 🎨 Task App Name */
+.login-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.login-app-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff9800; /* Warm Orange */
+}
+
+.login-tagline {
+  font-size: 1.1rem;
+  color: #4b5563;
 }
 
 /* 🎨 Minimalistic Login Card */
@@ -22,8 +42,14 @@
 .login-title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #374151; /* Dark Gray */
-  margin-bottom: 20px;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.login-subtext {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 15px;
 }
 
 /* 🎨 Form Input Fields */
@@ -34,7 +60,7 @@
 
 .form-group label {
   font-weight: 600;
-  color: #4b5563; /* Dark Gray */
+  color: #4b5563;
   font-size: 0.95rem;
   display: block;
   margin-bottom: 5px;
@@ -45,13 +71,13 @@
   padding: 10px;
   font-size: 1rem;
   border-radius: 8px;
-  border: 1px solid #e5e7eb; /* Light Gray */
+  border: 1px solid #e5e7eb;
   outline: none;
   transition: border 0.2s ease-in-out;
 }
 
 .form-control:focus {
-  border-color: #6ee7b7; /* Green Focus */
+  border-color: #6ee7b7;
 }
 
 /* 🎨 Alert Messages */
@@ -63,19 +89,19 @@
 }
 
 .error {
-  background: #fee2e2; /* Light Red */
-  color: #991b1b; /* Deep Red */
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 .success {
-  background: #d1fae5; /* Light Green */
-  color: #065f46; /* Dark Green */
+  background: #d1fae5;
+  color: #065f46;
 }
 
 /* 🎨 Login Button */
 .login-btn {
-  background: #6ee7b7; /* Soft Green */
-  color: #064e3b; /* Dark Green */
+  background: linear-gradient(90deg, #6ee7b7, #22c55e);
+  color: white;
   font-size: 1.1rem;
   font-weight: bold;
   padding: 12px;
@@ -84,4 +110,20 @@
   cursor: pointer;
   width: 100%;
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+}
+
+.login-btn:hover {
+  background: linear-gradient(90deg, #22c55e, #6ee7b7);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(34, 197, 94, 0.5);
+}
+
+/* 🎨 Footer Message */
+.login-footer {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4b5563;
+  text-align: center;
 }

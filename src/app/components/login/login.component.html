@@ -1,7 +1,16 @@
 <!-- login.component.html -->
 <div class="login-container">
+  <!-- Header Section with a Subtle To-Do App Introduction -->
+  <div class="login-header">
+    <h1 class="login-app-name">📋 TaskMaster</h1>
+    <p class="login-tagline">Stay Organized. Stay Productive.</p>
+  </div>
+
   <div class="login-card">
     <h2 class="login-title">Welcome Back!</h2>
+    <p class="login-subtext">
+      Log in to track and manage your tasks efficiently.
+    </p>
 
     <form>
       <!-- Username Field -->
@@ -48,8 +57,13 @@
         class="btn login-btn"
         (click)="handleJWTAuthLogin()"
       >
-        🚀 Login
+        🚀 Login & Manage Tasks
       </button>
     </form>
+  </div>
+
+  <!-- Footer with a Reminder About Task Management -->
+  <div class="login-footer">
+    <p>✔️ Your to-dos, managed effortlessly.</p>
   </div>
 </div>
