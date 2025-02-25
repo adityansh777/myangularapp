@@ -9,8 +9,7 @@ import { DatePipe, NgIf } from '@angular/common';
   selector: 'app-todo',
   imports: [FormsModule, DatePipe, NgIf],
   templateUrl: './todo.component.html',
-  // ⚠️ Issue: Should use "styleUrls" instead of "styleUrl"
-  styleUrl: './todo.component.css',
+  styleUrls: ['./todo.component.css'], // Correct property
 })
 export class TodoComponent {
   id!: number;
@@ -23,35 +22,31 @@ export class TodoComponent {
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
-    // Initialize the todo with default values; for new todos, id will be -1
+    // Convert the id from the route parameter to a number
+    this.id = +this.route.snapshot.params['id'];
+    // Initialize the todo with default values; for a new todo, id should be -1
     this.todo = new Todo(this.id, '', false, new Date());
-
-    // If the id is not -1, fetch the todo to update
-    if (this.id != -1) {
+    // If editing an existing todo, load its data
+    if (this.id !== -1) {
       this.todoService
-        .retreiveTodo('in28minutes', this.id)
+        .retrieveTodo('in28minutes', this.id)
         .subscribe((data) => (this.todo = data));
     }
   }
 
   saveTodo() {
-    // ⚠️ Issue: The logic here is reversed.
-    // For a new todo (id === -1), you should call createTodo.
-    // For an existing todo, you should call updateTodo.
-    if (this.id !== -1) {
-      // Currently, calling createTodo for existing todos, which is incorrect.
+    if (this.id === -1) {
+      // For a new todo, create it
       this.todoService
-        .updateTodo('in28minutes', this.id, this.todo)
+        .createTodo('in28minutes', this.todo)
         .subscribe((data) => {
           console.log(data);
           this.router.navigate(['todos']);
         });
-      // create todo (this block should be for new todos, i.e., id === -1)
     } else {
-      // Calling updateTodo for new todo, which is reversed.
+      // For an existing todo, update it
       this.todoService
-        .createTodo('in28minutes', this.todo)
+        .updateTodo('in28minutes', this.id, this.todo)
         .subscribe((data) => {
           console.log(data);
           this.router.navigate(['todos']);

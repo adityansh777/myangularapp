@@ -18,8 +18,7 @@ export class Todo {
   selector: 'app-list-todos',
   imports: [NgFor, DatePipe, NgIf],
   templateUrl: './list-todos.component.html',
-  // ⚠️ Issue: Should use "styleUrls" (plural) instead of "styleUrl"
-  styleUrl: './list-todos.component.css',
+  styleUrls: ['./list-todos.component.css'], // Correct property name
 })
 export class ListTodosComponent {
   todos: Todo[] = [];
@@ -28,7 +27,7 @@ export class ListTodosComponent {
   constructor(
     private todoService: TodoDataService,
     private router: Router,
-    private route: ActivatedRoute // Used to fetch route parameters if needed
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -36,30 +35,29 @@ export class ListTodosComponent {
   }
 
   refreshTodos() {
-    // Calling service to fetch all todos; note the misspelled method name.
-    this.todoService.retreiveAllTodos('in28minutes').subscribe((response) => {
-      console.log(response);
+    this.todoService.retrieveAllTodos('in28minutes').subscribe((response) => {
+      console.log('Todos retrieved:', response);
       this.todos = response;
     });
   }
 
-  deleteTodo(id: any) {
-    this.todoService.deleteTodo('in28minutes', id).subscribe((response) => {
-      console.log(response);
-      console.log(`Delete todo invoked for ${id}`);
-      this.message = `Delete successful ${id}`;
-      this.refreshTodos();
-    });
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo('in28minutes', id).subscribe(
+      (response) => {
+        console.log(`Delete todo invoked for ${id}:`, response);
+        this.message = `Delete successful for todo ${id}`;
+        this.refreshTodos();
+      },
+      (error) => {
+        console.error('Error during delete:', error);
+        this.message = `Delete failed for todo ${id}`;
+      }
+    );
   }
 
-  updateTodo(id: any) {
+  updateTodo(id: number) {
     // Navigate to the update form with the todo ID
     this.router.navigate(['todos', id]);
-
-    // This service call is optional if you already retrieve the todo in the update component.
-    this.todoService.retreiveTodo('in28minutes', id).subscribe((todo: Todo) => {
-      // Pre-fill form fields in the update component if needed.
-    });
   }
 
   addTodo() {

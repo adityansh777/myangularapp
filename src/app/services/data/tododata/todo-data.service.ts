@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from '../../../components/list-todos/list-todos.component';
 import { Observable } from 'rxjs';
+import { TODO_JPA_API_URL } from '../../../app.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -9,39 +10,33 @@ import { Observable } from 'rxjs';
 export class TodoDataService {
   constructor(private http: HttpClient) {}
 
-  // Note: "retreive" is misspelled; it should be "retrieve"
-  retreiveAllTodos(username: String): Observable<Todo[]> {
-    return this.http.get<Todo[]>(
-      `http://localhost:8080/users/${username}/todos`
-    );
+  retrieveAllTodos(username: string): Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${TODO_JPA_API_URL}/users/${username}/todos`);
   }
 
-  deleteTodo(username: String, id: any) {
+  deleteTodo(username: string, id: number): Observable<any> {
     return this.http.delete(
-      `http://localhost:8080/users/${username}/todos/${id}`
+      `${TODO_JPA_API_URL}/users/${username}/todos/${id}`,
+      { responseType: 'text' }
     );
   }
 
-  retreiveTodo(username: String, id: any) {
+  retrieveTodo(username: string, id: number): Observable<Todo> {
     return this.http.get<Todo>(
-      `http://localhost:8080/users/${username}/todos/${id}`
+      `${TODO_JPA_API_URL}/users/${username}/todos/${id}`
     );
   }
 
-  updateTodo(username: String, id: number, todo: Todo) {
+  updateTodo(username: string, id: number, todo: Todo): Observable<Todo> {
     return this.http.put<Todo>(
-      `http://localhost:8080/users/${username}/todos/${id}`,
+      `${TODO_JPA_API_URL}/users/${username}/todos/${id}`,
       todo
     );
   }
 
-  // ⚠️ Issue: createTodo is using HTTP PUT to a URL (without an ID) that does not
-  // exist in your backend. Typically, creating a new resource uses POST.
-  // In todo-data-service.ts
-
-  createTodo(username: String, todo: Todo) {
+  createTodo(username: string, todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(
-      `http://localhost:8080/users/${username}/todos`,
+      `${TODO_JPA_API_URL}/users/${username}/todos`,
       todo
     );
   }
