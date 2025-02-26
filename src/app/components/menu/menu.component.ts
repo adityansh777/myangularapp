@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
-import { HardcodedauthenticationService } from '../../services/auth/hardcodedauthentication.service';
+import { JwtAuthenticationService } from '../../services/auth/jwt-authentication.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -11,10 +11,10 @@ import { NgIf } from '@angular/common';
 })
 export class MenuComponent implements OnInit {
   isUserLoggedIn: Boolean = false;
-  constructor(
-    public hardcodedauthenticationservice: HardcodedauthenticationService
-  ) {}
+  username = '';
+  constructor(public jwtAuthenticationService: JwtAuthenticationService) {}
   ngOnInit() {
-    this.isUserLoggedIn = this.hardcodedauthenticationservice.isuserloggedin();
+    this.isUserLoggedIn = this.jwtAuthenticationService.isUserLoggedIn();
+    this.username = this.jwtAuthenticationService.getAuthusername() ?? '';
   }
 }

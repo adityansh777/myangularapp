@@ -28,6 +28,9 @@ export class JwtAuthenticationService {
     let user = sessionStorage.getItem('authuser');
     return user !== null;
   }
+  getAuthusername() {
+    return sessionStorage.getItem('authuser');
+  }
 
   logout() {
     sessionStorage.removeItem('authuser');

@@ -24,7 +24,7 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item" *ngIf="isUserLoggedIn">
             <a
-              routerLink="/welcome/adityansh"
+              [routerLink]="['/welcome/', username]"
               class="nav-link"
               routerLinkActive="active-link"
               [routerLinkActiveOptions]="{ exact: true }"
