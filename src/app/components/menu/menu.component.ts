@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { HardcodedauthenticationService } from '../../services/auth/hardcodedauthentication.service';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
-  imports: [RouterLink, NgIf],
+  imports: [RouterLink, NgIf, RouterModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css',
 })

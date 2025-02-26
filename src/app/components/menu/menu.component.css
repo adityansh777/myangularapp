@@ -1,0 +1,106 @@
+/* 🎨 Navbar Styling */
+.navbar-bg {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+/* 🎨 Default NavLink Style */
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4b5563;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* 🎨 Navbar Brand (Logo) */
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #374151; /* Dark Gray */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  color: #f97316; /* Orange Hover */
+}
+
+/* 🎨 General Nav Links */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151; /* Dark Gray */
+  padding: 8px 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* 🎨 Active NavLink - Adds an Orange Underline */
+.active-link {
+  color: #ff5722 !important;
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 3px;
+  background: #ff5722;
+  transition: width 0.3s ease-in-out;
+}
+
+/* 🎨 Hover Effect for All Links */
+.navbar-nav .nav-link:hover {
+  color: #f97316; /* Orange Hover */
+}
+
+.nav-link:hover {
+  color: #ff5722;
+}
+
+/* 🎨 Highlighted 'Todos' Link */
+.primary-link {
+  font-weight: bold;
+  color: #f97316 !important; /* Orange Highlight */
+  border-bottom: 2px solid #f97316;
+}
+
+/* 🎨 Login & Logout Links */
+.logout-link {
+  color: #ef4444; /* Red for Logout */
+}
+
+.logout-link:hover {
+  color: #dc2626;
+}
+
+/* 🎨 Responsive Navbar Toggler */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+/* 🎨 Responsive Navbar Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+/* 🎨 Subtle Box Shadow for Floating Effect */
+.navbar {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar.fixed-top {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}

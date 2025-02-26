@@ -1,24 +1,67 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-light navbar-bg">
     <div class="container">
-      <a href="https://adityanshkapasia.tech" class="navbar-brand">Creator</a>
-      <div class="navbar-collapse" id="navbarSupportedContent">
+      <!-- Logo & Branding -->
+      <a href="https://adityanshkapasia.tech" class="navbar-brand">
+        📝 TaskMaster
+      </a>
+
+      <!-- Navbar Toggler for Mobile -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
         <!-- Left-aligned menu items -->
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item" *ngIf="isUserLoggedIn">
-            <a routerLink="/welcome/adityansh" class="nav-link">Home</a>
+            <a
+              routerLink="/welcome/adityansh"
+              class="nav-link"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Home
+            </a>
           </li>
           <li class="nav-item" *ngIf="isUserLoggedIn">
-            <a routerLink="/todos" class="nav-link">Todos</a>
+            <a
+              routerLink="/todos"
+              class="nav-link"
+              routerLinkActive="active-link"
+            >
+              Todos
+            </a>
           </li>
         </ul>
+
         <!-- Right-aligned menu items -->
-        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item" *ngIf="!isUserLoggedIn">
-            <a routerLink="/login" class="nav-link">Login</a>
+            <a
+              routerLink="/login"
+              class="nav-link"
+              routerLinkActive="active-link"
+            >
+              Login
+            </a>
           </li>
           <li class="nav-item" *ngIf="isUserLoggedIn">
-            <a routerLink="/logout" class="nav-link">Logout</a>
+            <a
+              routerLink="/logout"
+              class="nav-link"
+              routerLinkActive="active-link"
+            >
+              Logout
+            </a>
           </li>
         </ul>
       </div>
