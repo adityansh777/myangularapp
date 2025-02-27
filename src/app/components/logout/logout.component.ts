@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HardcodedauthenticationService } from '../../services/auth/hardcodedauthentication.service';
+import { JwtAuthenticationService } from '../../services/auth/jwt-authentication.service';
 
 @Component({
   selector: 'app-logout',
@@ -8,12 +8,10 @@ import { HardcodedauthenticationService } from '../../services/auth/hardcodedaut
   styleUrl: './logout.component.css',
 })
 export class LogoutComponent {
-  constructor(
-    public hardcodedauthenticationlogic: HardcodedauthenticationService
-  ) {}
+  constructor(public jwtAuthenticationService: JwtAuthenticationService) {}
 
   ngOnInit() {
-    this.hardcodedauthenticationlogic.logout();
+    this.jwtAuthenticationService.logout();
     window.location.href = '/login';
   }
 }

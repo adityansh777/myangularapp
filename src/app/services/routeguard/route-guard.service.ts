@@ -7,20 +7,20 @@ import {
   // MaybeAsync,
   RouterStateSnapshot,
 } from '@angular/router';
-import { HardcodedauthenticationService } from '../auth/hardcodedauthentication.service';
+import { JwtAuthenticationService } from '../auth/jwt-authentication.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RouteGuardService implements CanActivate {
   constructor(
-    public hardcodedauthenticationlogic: HardcodedauthenticationService,
+    public jwtAuthenticationService: JwtAuthenticationService,
     public router: Router
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // console.log('Route guard provoked');
-    if (this.hardcodedauthenticationlogic.isuserloggedin()) {
+    if (this.jwtAuthenticationService.isUserLoggedIn()) {
       return true;
     }
     this.router.navigate(['login']);
