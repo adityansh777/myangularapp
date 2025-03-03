@@ -4,6 +4,7 @@ import { Todo } from '../list-todos/list-todos.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DatePipe, NgIf } from '@angular/common';
+import { JwtAuthenticationService } from '../../services/auth/jwt-authentication.service';
 
 @Component({
   selector: 'app-todo',
@@ -14,11 +15,13 @@ import { DatePipe, NgIf } from '@angular/common';
 export class TodoComponent {
   id!: number;
   todo!: Todo;
+  username!: '';
 
   constructor(
     private todoService: TodoDataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authservice: JwtAuthenticationService
   ) {}
 
   ngOnInit() {
@@ -29,16 +32,17 @@ export class TodoComponent {
     // If editing an existing todo, load its data
     if (this.id !== -1) {
       this.todoService
-        .retrieveTodo('in28minutes', this.id)
+        .retrieveTodo(this.authservice.getAuthusername()!, this.id)
         .subscribe((data) => (this.todo = data));
     }
   }
+  // username = String | undefined;
 
   saveTodo() {
     if (this.id === -1) {
       // For a new todo, create it
       this.todoService
-        .createTodo('in28minutes', this.todo)
+        .createTodo(this.authservice.getAuthusername()!, this.todo)
         .subscribe((data) => {
           console.log(data);
           this.router.navigate(['todos']);
@@ -46,7 +50,7 @@ export class TodoComponent {
     } else {
       // For an existing todo, update it
       this.todoService
-        .updateTodo('in28minutes', this.id, this.todo)
+        .updateTodo(this.authservice.getAuthusername()!, this.id, this.todo)
         .subscribe((data) => {
           console.log(data);
           this.router.navigate(['todos']);

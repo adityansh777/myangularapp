@@ -12,6 +12,9 @@ import { JwtAuthenticationService } from '../../services/auth/jwt-authentication
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  redirecttosignup() {
+    this.router.navigate(['signup']);
+  }
   username = 'in28minutes';
   password = 'dummy';
   invalidLogin = false;

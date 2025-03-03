@@ -1,0 +1,72 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <h2 class="signup-title">Create Your Account</h2>
+    <p class="signup-subtext">
+      Sign up to start managing your tasks efficiently.
+    </p>
+
+    <form (ngSubmit)="handleSignup()">
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Enter your username"
+          required
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Create a password"
+          required
+        />
+      </div>
+
+      <!-- Error Message -->
+      <!-- <div *ngIf="signupError" class="alert-message error">
+        ⚠ {{ signupErrorMessage }}
+      </div> -->
+
+      <!-- Success Message -->
+      <!-- <div *ngIf="signupSuccess" class="alert-message success">
+        🎉 {{ signupSuccessMessage }}
+      </div> -->
+
+      <!-- Sign Up Button -->
+      <button type="submit" class="btn signup-btn">
+        🚀 Sign Up & Start Managing Tasks
+      </button>
+    </form>
+
+    <!-- Redirect to Login -->
+    <button type="button" class="btn login-btn" (click)="redirecttologin()">
+      Login
+    </button>
+  </div>
+</div>

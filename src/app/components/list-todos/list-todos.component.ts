@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TodoDataService } from '../../services/data/tododata/todo-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { JwtAuthenticationService } from '../../services/auth/jwt-authentication.service';
 
 // Todo model for the frontend; ensure properties match backend responses
 export class Todo {
@@ -23,26 +24,31 @@ export class Todo {
 export class ListTodosComponent {
   todos: Todo[] = [];
   message: string | undefined;
+  username: string | undefined;
 
   constructor(
     private todoService: TodoDataService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private autheservice: JwtAuthenticationService
   ) {}
 
   ngOnInit() {
     this.refreshTodos();
+    // this.username = this.autheservice.getAuthusername()!;
   }
 
   refreshTodos() {
-    this.todoService.retrieveAllTodos('in28minutes').subscribe((response) => {
+    this.username = this.autheservice.getAuthusername()!;
+    this.todoService.retrieveAllTodos(this.username).subscribe((response) => {
       console.log('Todos retrieved:', response);
       this.todos = response;
     });
   }
 
   deleteTodo(id: number) {
-    this.todoService.deleteTodo('in28minutes', id).subscribe(
+    this.username = this.autheservice.getAuthusername()!;
+    this.todoService.deleteTodo(this.username, id).subscribe(
       (response) => {
         console.log(`Delete todo invoked for ${id}:`, response);
         this.message = `Delete successful for todo ${id}`;
